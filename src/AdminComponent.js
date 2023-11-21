@@ -33,6 +33,7 @@ import {
   import InboxIcon from '@mui/icons-material/MoveToInbox';
   import { UserContext } from './userData';
   import { useNavigate } from 'react-router-dom';
+ 
   
   const columns = [
     { field: 'id', headerName: 'ID', width: 90 },
@@ -250,6 +251,13 @@ const AdminScreen = () => {
     role: newUserData.role}]);// Update userData state with new user
     console.log('Updated User Data',userData)
     setOpenDialog(false);
+    setNewUserData({
+      id: '',
+      username: '',
+      password: '',
+      active_module: '',
+      role: '',
+    });
   };  
   
   

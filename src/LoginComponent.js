@@ -54,14 +54,16 @@ const handleSubmit = (event) => {
 
     const user = userData.find(u => u.username === data.get('email') && u.password === data.get('password'));
     console.log("USER",user)
+    
     if (user) {
       if(user.active_module === true){
         console.log("USER",user)
         setUser(user);
         setIsLogin(true)
         setTimeout(() => {
-          {user.role === 'admin' ? navigate('/admin') : navigate('/user')}
+          {user.role === 'admin' ? navigate('/admin') : navigate('/user',{ state: { name:user.username }})}
         }, 4000);
+        
       }else{
         setError('User Inactive')
         setShowError(true)
